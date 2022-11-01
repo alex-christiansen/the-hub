@@ -21,4 +21,9 @@ explore: orders {
     sql: ${order_items.order_id} = ${orders.order_id} ;;
     relationship: many_to_one
   }
+  join: inventory_items {
+    type: left_outer
+    sql: ${inventory_items.id} = ${order_items.inventory_item_id} ;;
+    relationship: one_to_one
+  }
 }
